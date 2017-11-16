@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.yhaitao.conf.manager</groupId>
 	<artifactId>tools-conf-manager</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>war</packaging>
 	<build>
 		<finalName>tools-conf-client</finalName>
