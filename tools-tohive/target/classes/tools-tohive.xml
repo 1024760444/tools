@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+	<!-- mysql conf -->
+	<property>
+		<name>jdbc.driver</name>
+		<value>com.mysql.jdbc.Driver</value>
+	</property>
+	<property>
+		<name>jdbc.url</name>
+		<value>jdbc:mysql://localhost:3306/words?characterEncoding=utf-8</value>
+	</property>
+	<property>
+		<name>jdbc.name</name>
+		<value>root</value>
+	</property>
+	<property>
+		<name>jdbc.password</name>
+		<value>123456</value>
+	</property>
+	<property>
+		<name>jdbc.table.name</name>
+		<value>t_mark_chinaz_words</value>
+	</property>
+	<property>
+		<name>jdbc.partition.key</name>
+		<value>superId</value>
+		<description>MySQL table column, Value for hive partition value</description>
+	</property>
+	<property>
+		<name>jdbc.table.columns</name>
+		<value>id, wname, url, superId, weight, cdate</value>
+		<description>MySQL table column list, As hive table column order</description>
+	</property>
+	<property>
+		<name>jdbc.data.separator</name>
+		<value>1</value>
+		<description>ASCII Code Number, For data separator, The same with hive table separator</description>
+	</property>
+	<property>
+		<name>jdbc.data.pageSize</name>
+		<value>1000</value>
+		<description>SQL : limit number</description>
+	</property>
+	<property>
+		<name>jdbc.mapreduce.map.number</name>
+		<value>4</value>
+	</property>
+	
+	<!-- hive conf -->
+	<property>
+		<name>hive.driver</name>
+		<value>org.apache.hive.jdbc.HiveDriver</value>
+	</property>
+	<property>
+		<name>hive.url</name>
+		<value>jdbc:hive2://hdp1:10000/ichart</value>
+	</property>
+	<property>
+		<name>hive.name</name>
+		<value>root</value>
+	</property>
+	<property>
+		<name>hive.password</name>
+		<value>123456</value>
+	</property>
+	<property>
+		<name>hive.table.name</name>
+		<value>t_mark_chinaz_words</value>
+	</property>
+	<property>
+		<name>hive.dst.tmp.path</name>
+		<value>/tmp/tohive/data</value>
+		<description>Hive table path, HDFS path</description>
+	</property>
+	<property>
+		<name>hive.partition.key</name>
+		<value>psuperId</value>
+		<description>Hive partition key</description>
+	</property>
+	<property>
+		<name>hive.file.size</name>
+		<value>67108864</value>
+		<description>Hive file max size, unit : byte; default : 64M</description>
+	</property>
+	
+	<!-- ext jar path, hdfs path -->
+	<property>
+		<name>hdfs.path.ext.jars</name>
+		<value>/lib/tohive</value>
+	</property>
+</configuration>
