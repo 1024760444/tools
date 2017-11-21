@@ -120,6 +120,34 @@ public class ZooKeeperUtils {
 	}
 	
 	/**
+	 * 获取指定节点的数据，并监控该节点。
+	 * @param path 获取数据的目录
+	 * @param watcher 监控节点
+	 * @return 数据
+	 * @throws Exception
+	 */
+	public byte[] getData(String path, Watcher watcher) throws Exception {
+		try {
+			return this.zooKeeper.getData(path, watcher, new Stat());
+		} catch (Exception e) {
+			throw new Exception(eMessage("getData", path, e.getMessage()));
+		}
+	}
+	
+	/**
+	 * 删除节点。
+	 * @param path 需要删除的节点
+	 * @throws Exception
+	 */
+	public void delete(String path) throws Exception {
+		try {
+			this.zooKeeper.delete(path, -1);
+		} catch (Exception e) {
+			throw new Exception(eMessage("delete", path, e.getMessage()));
+		}
+	}
+	
+	/**
 	 * 关闭ZooKeeper连接
 	 * @param zooKeeper 需要关闭的ZooKeeper连接
 	 */
